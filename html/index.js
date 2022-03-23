@@ -3,13 +3,7 @@ $(function () {
         if (bool) {
             $("#container").slideDown(400);
             $("#info").fadeIn(500)
-            $("#done").hide()
-
-
-
-            
-
-            
+            $("#done").hide()                   
         } else {
             $("#container").hide();
         }
@@ -29,7 +23,7 @@ $(function () {
     })
     document.onkeyup = function (data) {
         if (data.which == 27) {
-            $.post(`http://${GetParentResourceName()}/exit`, JSON.stringify({}));
+            $.post(`https://society-reports/exit`, JSON.stringify({}));
             return
         }
     };
@@ -43,12 +37,6 @@ $(function () {
        document.getElementById('lastname').value = ''
        document.getElementById('age').value = ''
        document.getElementById('why').value = ''
-
-
-
-
-
-
 
     })
 
@@ -73,7 +61,7 @@ $(function () {
                 $("#info").fadeOut(400)
                 $("#container").hide();
                 $.post(
-                    `http://${GetParentResourceName()}/name`,
+                    `https://society-reports/name`,
                   JSON.stringify({
                     plate: $("#firstname").val(),     
                     lastname: $("#lastname").val(),
@@ -89,22 +77,12 @@ $(function () {
 
         $("#container").slideUp();
         setTimeout(function(){
-            $.post(`http://${GetParentResourceName()}/exit`, JSON.stringify({}));
+            $.post(`https://society-reports/exit`, JSON.stringify({}));
 
         },400);
 
 
         return
     })
-    
-
-
-
-
-        
-    
-
-        
-    
 
 })
